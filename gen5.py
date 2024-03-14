@@ -31,29 +31,52 @@ def evaluate_circle_size(x, y, radius, other_circles):
         return radius
     return 0
 
-# Algoritmo genético para encontrar el círculo más grande posible sin colisiones
 def genetic_algorithm(circles_data, canvas_width, canvas_height):
-    max_radius = min(canvas_width, canvas_height) // 2  # El radio máximo posible
-    
-    # Inicializar el mejor círculo con el más grande de los círculos existentes
-    best_circle = max(circles_data, key=lambda x: x[2])
+    max_radius = min(canvas_width, canvas_height) // 2
 
-    population_size = 100  # Tamaño de la población
-    generations = 100  # Número de generaciones
+    # Initialize population with random circles
+    population_size = 1500
+    population = [(random.randint(0, canvas_width), random.randint(0, canvas_height), random.randint(1, max_radius)) for _ in range(population_size)]
 
-    for generation in range(1, generations + 1):
-        population = [(random.randint(0, canvas_width), random.randint(0, canvas_height), random.randint(1, max_radius)) for _ in range(population_size)]
-        
-        for circle in population:
-            x, y, radius = circle
-            if radius > max_radius:
-                continue  # Ignorar círculos con un radio mayor que el máximo posible
-            if x - radius < 0 or x + radius > canvas_width or y - radius < 0 or y + radius > canvas_height:
-                continue  # Ignorar círculos que están fuera de los límites del lienzo
+    # Fitness function: Evaluate circle size without collisions
+    def fitness(circle):
+        x, y, radius = circle
+        if x - radius < 0 or x + radius > canvas_width or y - radius < 0 or y + radius > canvas_height:
+            return 0  # Out of bounds
+        return evaluate_circle_size(x, y, radius, circles_data)
 
-            size = evaluate_circle_size(x, y, radius, circles_data)
-            if size > best_circle[2]:
-                best_circle = (x, y, size)
+    generations = 900
+    for generation in range(generations):
+        # Evaluate fitness
+        fitness_scores = [fitness(circle) for circle in population]
+
+        # Selection: Choose top performers as parents
+        parents_indices = sorted(range(len(population)), key=lambda i: fitness_scores[i], reverse=True)[:population_size//2]
+        parents = [population[i] for i in parents_indices]
+
+        # Crossover: Produce offspring from pairs of parents
+        offspring = []
+        while len(offspring) < population_size - len(parents):
+            parent1, parent2 = random.sample(parents, 2)
+            child_x = (parent1[0] + parent2[0]) // 2
+            child_y = (parent1[1] + parent2[1]) // 2
+            child_radius = min((parent1[2] + parent2[2]) // 2, max_radius)
+            offspring.append((child_x, child_y, child_radius))
+
+        # Mutation: Slightly modify some offspring
+        for i in range(len(offspring)):
+            if random.random() < 0.1:  # Mutation probability
+                mutate_radius = offspring[i][2] + random.randint(-2, 2)
+                offspring[i] = (offspring[i][0], offspring[i][1], max(1, min(mutate_radius, max_radius)))
+
+        # Form new generation
+        population = parents + offspring
+
+    # Find the best circle from the last generation
+    best_fitness = max(fitness_scores)
+    best_index = fitness_scores.index(best_fitness)
+    best_circle = population[best_index]
+
 
     # Crear una nueva imagen
     image = Image.new("RGB", (canvas_width, canvas_height), "white")
