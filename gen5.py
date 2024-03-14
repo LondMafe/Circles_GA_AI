@@ -1,3 +1,6 @@
+# Description: Genetic algorithm to find the largest circle that does not collide with other circles
+# Made by: LondMafe
+
 import random
 from math import sqrt
 from PIL import Image, ImageDraw
