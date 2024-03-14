@@ -1,0 +1,16 @@
+x: 511, y: 291, radius: 21
+x: 665, y: 492, radius: 79
+x: 174, y: 537, radius: 28
+x: 435, y: 622, radius: 32
+x: 550, y: 383, radius: 44
+x: 595, y: 219, radius: 68
+x: 809, y: 580, radius: 29
+x: 457, y: 119, radius: 75
+x: 83, y: 492, radius: 41
+x: 154, y: 52, radius: 42
+x: 188, y: 421, radius: 20
+x: 295, y: 578, radius: 77
+x: 878, y: 435, radius: 27
+x: 796, y: 212, radius: 67
+x: 284, y: 204, radius: 64
+x: 881, y: 81, radius: 63
