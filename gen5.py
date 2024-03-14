@@ -2,10 +2,10 @@ import random
 from math import sqrt
 from PIL import Image, ImageDraw
 
-# Tamaño del lienzo
-canvas_width, canvas_height = 1000, 800  # Lienzo rectangular
+# Canvas size
+canvas_width, canvas_height = 1000, 800  # Rectangular canvas
 
-# Leer los datos de los círculos dibujados desde el archivo "circle_data.txt"
+# Read the data of the circles drawn from the file "circle_data.txt"
 circles_data = []
 with open("circle_data.txt", "r") as file:
     for line in file:
@@ -15,16 +15,16 @@ with open("circle_data.txt", "r") as file:
         radius = int(data[2].split(": ")[1])
         circles_data.append((x, y, radius))
 
-# Función para verificar si un círculo colisiona con otros círculos
+# Function to verify if a circle collides with other circles
 def check_collision(circle, other_circles):
     x, y, radius = circle
     for cx, cy, r in other_circles:
         distance = sqrt((x - cx)**2 + (y - cy)**2)
-        if distance < radius + r:  # Permitir que los círculos se toquen, pero no se solapen
+        if distance < radius + r:  # Allow circles to touch, but not overlap
             return True
     return False
 
-# Función para evaluar el tamaño del círculo en un punto específico del lienzo
+# Function to evaluate the size of the circle at a specific point on the canvas
 def evaluate_circle_size(x, y, radius, other_circles):
     test_circle = (x, y, radius)
     if not check_collision(test_circle, other_circles):
@@ -77,27 +77,26 @@ def genetic_algorithm(circles_data, canvas_width, canvas_height):
     best_index = fitness_scores.index(best_fitness)
     best_circle = population[best_index]
 
-
-    # Crear una nueva imagen
+    # Create a new image
     image = Image.new("RGB", (canvas_width, canvas_height), "white")
     draw = ImageDraw.Draw(image)
 
-    # Dibujar los círculos existentes
+    # Draw existing circles
     for circle in circles_data:
         x, y, radius = circle
         draw.ellipse((x - radius, y - radius, x + radius, y + radius), outline="black")
 
-    # Dibujar el nuevo círculo más grande encontrado por el algoritmo genético en color rosa
+    # Draw the new largest circle found by the genetic algorithm in Barbie pink
     x, y, radius = best_circle
     draw.ellipse((x - radius, y - radius, x + radius, y + radius), outline="#F7238A", fill="#F7238A")
 
-    # Guardar la imagen
+    # Save the image
     image.save("largest_circle.png")
     
-    # Mostrar la imagen (opcional)
+    # Show the image
     image.show()
 
     return best_circle
 
-# Ejecutar el algoritmo genético
+# Execute the genetic algorithm
 best_circle = genetic_algorithm(circles_data, canvas_width, canvas_height)
