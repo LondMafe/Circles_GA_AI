@@ -72,3 +72,6 @@ def genetic_algorithm():
 # Ejecutar el algoritmo genético
 best_individual = genetic_algorithm()
 print("Mejor individuo:", best_individual)
+
+
+#HOLI
