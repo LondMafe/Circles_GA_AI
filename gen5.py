@@ -91,7 +91,7 @@ def genetic_algorithm(circles_data, canvas_width, canvas_height):
 
     # Draw the new largest circle found by the genetic algorithm in Barbie pink
     x, y, radius = best_circle
-    draw.ellipse((x - radius, y - radius, x + radius, y + radius), outline="#F7238A", fill="#F7238A")
+    draw.ellipse((x - radius, y - radius, x + radius, y + radius), outline="#F22780", fill="#F22780")
 
     # Save the image
     image.save("largest_circle.png")
