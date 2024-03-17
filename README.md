@@ -34,4 +34,3 @@ Incluyo el óptimo global para cada problema como referencia, pero no lo use en 
 Dada un área que tiene una cantidad de discos que no se superponen esparcidos por su superficie, como se muestra en la figura 1,
 
 Utilice un algoritmo genético para encontrar el disco de mayor radio que se puede colocar entre estos discos sin superponer ninguno de ellos.  Ver figura 2.
-
