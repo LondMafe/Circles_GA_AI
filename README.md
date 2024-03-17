@@ -6,7 +6,7 @@
 
 *Note:* The archives in the folders "circlespace" and "gen" are just the previous versions, the final files are *"circlespace4"* and *"gen5"*.
 
-# Algoritmos Geneticos
+## Algoritmos Geneticos
 
 Para el problema siguiente, haga:
 
