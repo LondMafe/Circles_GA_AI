@@ -36,7 +36,10 @@ Para el problema siguiente, haga:
     - Cambiar la probabilidad de mutación dos veces
         - Mutation Probability 0.05: Best Circle = (376, 390, 127), Fitness = 127 ![13](assets/genetic_algorithm_run_0.05.png)
         - Mutation Probability 0.2: Best Circle = (367, 374, 125), Fitness = 125 ![14](assets/genetic_algorithm_run_0.2.png)
+  
     - Cambiar el tamaño de la población dos veces
+        - Population Size 1000: Best Circle = (370, 387, 128), Fitness = 128 ![15](assets/genetic_algorithm_run_1000.png)
+        - Population Size 2000: Best Circle = (359, 379, 126), Fitness = 126 ![16](assets/genetic_algorithm_run_2000.png)
     - Cambie la semilla del número aleatorio diez veces
   
 4. Incluya su código con su tarea.
