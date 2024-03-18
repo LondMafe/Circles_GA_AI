@@ -34,12 +34,16 @@ Para el problema siguiente, haga:
         - Crossover Probability 0.9: Best Circle = (349, 385, 123), Fitness = 123 ![12](assets/genetic_algorithm_run_1_cambiar.png)
 
     - Cambiar la probabilidad de mutación dos veces
+        - Mutation Probability 0.05: Best Circle = (376, 390, 127), Fitness = 127 ![13](assets/genetic_algorithm_run_0.05.png)
+        - Mutation Probability 0.2: Best Circle = (367, 374, 125), Fitness = 125 ![14](assets/genetic_algorithm_run_0.2.png)
     - Cambiar el tamaño de la población dos veces
     - Cambie la semilla del número aleatorio diez veces
-    - Incluya su código con su tarea.
-    - Indique que el porcentaje de cada miembro del equipo contribuye a este asignación (solo si trabaja con otros).
+  
+4. Incluya su código con su tarea.
 
-4. No copie el trabajo de otro equipo/individuo. Cualquiera/cualquier equipo que viole este reglamento recibirá una calificación de cero para este taller.
+5. Indique que el porcentaje de cada miembro del equipo contribuye a este asignación (solo si trabaja con otros).
+
+6. No copie el trabajo de otro equipo/individuo. Cualquiera/cualquier equipo que viole este reglamento recibirá una calificación de cero para este taller.
 Incluyo el óptimo global para cada problema como referencia, pero no lo use en su metodología de solución.
 
 ## Problema
