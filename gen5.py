@@ -34,7 +34,7 @@ def evaluate_circle_size(x, y, radius, other_circles):
         return radius
     return 0
 
-def genetic_algorithm(circles_data, canvas_width, canvas_height, run_index=0):
+def genetic_algorithm(circles_data, canvas_width, canvas_height, crossover_probability, run_index=0):
     max_radius = min(canvas_width, canvas_height) // 2
 
     # Initialize population with random circles
@@ -61,11 +61,15 @@ def genetic_algorithm(circles_data, canvas_width, canvas_height, run_index=0):
         # Crossover: Produce offspring from pairs of parents
         offspring = []
         while len(offspring) < population_size - len(parents):
-            parent1, parent2 = random.sample(parents, 2)
-            child_x = (parent1[0] + parent2[0]) // 2
-            child_y = (parent1[1] + parent2[1]) // 2
-            child_radius = min((parent1[2] + parent2[2]) // 2, max_radius)
-            offspring.append((child_x, child_y, child_radius))
+            if random.random() < crossover_probability:  # Usa la probabilidad de cruce modificada
+                parent1, parent2 = random.sample(parents, 2)
+                child_x = (parent1[0] + parent2[0]) // 2
+                child_y = (parent1[1] + parent2[1]) // 2
+                child_radius = min((parent1[2] + parent2[2]) // 2, max_radius)
+                offspring.append((child_x, child_y, child_radius))
+            else:
+                # Si no hay cruce, simplemente copia un padre a la siguiente generación
+                offspring.append(random.choice(parents))
 
         # Mutation: Slightly modify some offspring
         for i in range(len(offspring)):
@@ -108,12 +112,13 @@ def genetic_algorithm(circles_data, canvas_width, canvas_height, run_index=0):
     return best_circle, best_fitness
 
 # Ejecuta el algoritmo genético 10 veces con diferentes puntos de partida
+probabilities = [0.7, 0.9]  # Por ejemplo, cambiar la probabilidad de cruce a 70% y luego a 90%
 results = []
-for i in range(10):
-    best_circle, best_fitness = genetic_algorithm(circles_data, canvas_width, canvas_height, i)
-    results.append((best_circle, best_fitness))
+for prob in probabilities:
+    best_circle, best_fitness = genetic_algorithm(circles_data, canvas_width, canvas_height, prob, run_index=len(results))
+    results.append((prob, best_circle, best_fitness))
 
 # Compara los resultados
 # Aquí podrías imprimir los resultados o analizarlos para ver cómo varían.
-for index, (circle, fitness) in enumerate(results):
-    print(f"Run {index+1}: Best Circle = {circle}, Fitness = {fitness}")
+for prob, circle, fitness in results:
+    print(f"Crossover Probability {prob}: Best Circle = {circle}, Fitness = {fitness}")

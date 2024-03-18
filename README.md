@@ -17,7 +17,7 @@ Para el problema siguiente, haga:
 3. Realice los siguientes cambios en su código GA (uno por uno) y compare el resultados.
 
     - Cambiar los puntos de partida iniciales (soluciones iniciales) diez veces
- 
+
         - Run 1: Best Circle = (376, 358, 115), Fitness = 115![1](assets/genetic_algorithm_run_0.png)
         - Run 2: Best Circle = (358, 380, 126), Fitness = 126![2](assets/genetic_algorithm_run_1.png)
         - Run 3: Best Circle = (380, 394, 125), Fitness = 125![3](assets/genetic_algorithm_run_2.png)
@@ -30,6 +30,8 @@ Para el problema siguiente, haga:
         - Run 10: Best Circle = (354, 382, 127), Fitness = 127![10](assets/genetic_algorithm_run_9.png)
 
     - Cambiar la probabilidad de cruce dos veces
+        - Crossover Probability 0.7: Best Circle = (691, 685, 115), Fitness = 115 ![11](assets/genetic_algorithm_run_0_cambiar.png)
+        - Crossover Probability 0.9: Best Circle = (349, 385, 123), Fitness = 123 ![12](assets/genetic_algorithm_run_1_cambiar.png)
 
     - Cambiar la probabilidad de mutación dos veces
     - Cambiar el tamaño de la población dos veces
