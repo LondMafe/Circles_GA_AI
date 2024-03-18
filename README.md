@@ -40,7 +40,18 @@ Para el problema siguiente, haga:
     - Cambiar el tamaño de la población dos veces
         - Population Size 1000: Best Circle = (370, 387, 128), Fitness = 128 ![15](assets/genetic_algorithm_run_1000.png)
         - Population Size 2000: Best Circle = (359, 379, 126), Fitness = 126 ![16](assets/genetic_algorithm_run_2000.png)
+
     - Cambie la semilla del número aleatorio diez veces
+        - Random Seed 0: Best Circle = (376, 358, 115), Fitness = 115 ![17](assets/genetic_algorithm_run_0_seed.png)
+        - Random Seed 1: Best Circle = (358, 380, 126), Fitness = 126 ![18](assets/genetic_algorithm_run_1_seed.png)
+        - Random Seed 2: Best Circle = (380, 394, 125), Fitness = 125 ![19](assets/genetic_algorithm_run_2_seed.png)
+        - Random Seed 3: Best Circle = (356, 381, 126), Fitness = 126 ![20](assets/genetic_algorithm_run_3_seed.png)
+        - Random Seed 4: Best Circle = (365, 390, 123), Fitness = 123 ![21](assets/genetic_algorithm_run_4_seed.png)
+        - Random Seed 5: Best Circle = (366, 381, 131), Fitness = 131 ![22](assets/genetic_algorithm_run_5_seed.png)
+        - Random Seed 6: Best Circle = (347, 379, 121), Fitness = 121 ![23](assets/genetic_algorithm_run_6_seed.png)
+        - Random Seed 7: Best Circle = (367, 393, 121), Fitness = 121 ![24](assets/genetic_algorithm_run_7_seed.png)
+        - Random Seed 8: Best Circle = (377, 380, 129), Fitness = 129 ![25](assets/genetic_algorithm_run_8_seed.png)
+        - Random Seed 9: Best Circle = (354, 382, 127), Fitness = 127 ![26](assets/genetic_algorithm_run_9_seed.png)
   
 4. Incluya su código con su tarea.
 
