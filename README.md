@@ -17,6 +17,17 @@ Para el problema siguiente, haga:
 3. Realice los siguientes cambios en su código GA (uno por uno) y compare el resultados.
 
     - Cambiar los puntos de partida iniciales (soluciones iniciales) diez veces
+ 
+        - Run 1: Best Circle = (376, 358, 115), Fitness = 115![1](assets/genetic_algorithm_run_0.png)
+        - Run 2: Best Circle = (358, 380, 126), Fitness = 126![2](assets/genetic_algorithm_run_1.png)
+        - Run 3: Best Circle = (380, 394, 125), Fitness = 125![3](assets/genetic_algorithm_run_2.png)
+        - Run 4: Best Circle = (356, 381, 126), Fitness = 126![4](assets/genetic_algorithm_run_3.png)
+        - Run 5: Best Circle = (365, 390, 123), Fitness = 123![5](assets/genetic_algorithm_run_4.png)
+        - Run 6: Best Circle = (366, 381, 131), Fitness = 131![6](assets/genetic_algorithm_run_5.png)
+        - Run 7: Best Circle = (347, 379, 121), Fitness = 121![7](assets/genetic_algorithm_run_6.png)
+        - Run 8: Best Circle = (367, 393, 121), Fitness = 121![8](assets/genetic_algorithm_run_7.png)
+        - Run 9: Best Circle = (377, 380, 129), Fitness = 129![9](assets/genetic_algorithm_run_8.png)
+        - Run 10: Best Circle = (354, 382, 127), Fitness = 127![10](assets/genetic_algorithm_run_9.png)
 
     - Cambiar la probabilidad de cruce dos veces
 

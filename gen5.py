@@ -34,10 +34,11 @@ def evaluate_circle_size(x, y, radius, other_circles):
         return radius
     return 0
 
-def genetic_algorithm(circles_data, canvas_width, canvas_height):
+def genetic_algorithm(circles_data, canvas_width, canvas_height, run_index=0):
     max_radius = min(canvas_width, canvas_height) // 2
 
     # Initialize population with random circles
+    random.seed(run_index)  # Cambia la semilla para cada ejecución
     population_size = 1500
     population = [(random.randint(0, canvas_width), random.randint(0, canvas_height), random.randint(1, max_radius)) for _ in range(population_size)]
 
@@ -94,12 +95,25 @@ def genetic_algorithm(circles_data, canvas_width, canvas_height):
     draw.ellipse((x - radius, y - radius, x + radius, y + radius), outline="#F22780", fill="#F22780")
 
     # Save the image
-    image.save("largest_circle.png")
+    for i in range(10):
+        image.save(f"genetic_algorithm_run_{run_index}.png" )
     
     # Show the image
+    
     image.show()
 
-    return best_circle
+    best_fitness = max(fitness_scores)
+    best_index = fitness_scores.index(best_fitness)
+    best_circle = population[best_index]
+    return best_circle, best_fitness
 
-# Execute the genetic algorithm
-best_circle = genetic_algorithm(circles_data, canvas_width, canvas_height)
+# Ejecuta el algoritmo genético 10 veces con diferentes puntos de partida
+results = []
+for i in range(10):
+    best_circle, best_fitness = genetic_algorithm(circles_data, canvas_width, canvas_height, i)
+    results.append((best_circle, best_fitness))
+
+# Compara los resultados
+# Aquí podrías imprimir los resultados o analizarlos para ver cómo varían.
+for index, (circle, fitness) in enumerate(results):
+    print(f"Run {index+1}: Best Circle = {circle}, Fitness = {fitness}")
